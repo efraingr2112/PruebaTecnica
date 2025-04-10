@@ -9,8 +9,14 @@ import java.io.Serializable;
 @Data
 @ToString
 @Builder
-public class MensajeResponse implements Serializable {
+public class MensajeResponse  implements Serializable {
 
-    private String mensaje;
-    private Object objeto;
+    private String mnesaje;
+    private Object object;
+    public MensajeResponse(String mensaje, Object object){
+        this.mnesaje= mnesaje;
+        this.object= object;
+
+
+}
 }

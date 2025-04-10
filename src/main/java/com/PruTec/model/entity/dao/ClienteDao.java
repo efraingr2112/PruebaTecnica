@@ -1,11 +1,7 @@
 package com.PruTec.model.entity.dao;
 
-import com.PruTec.model.entity.dao.Dto.clienteDto;
-import com.PruTec.model.entity.dao.cliente.cliente;
-import org.springframework.data.jpa.repository.JpaRepository;
+import com.PruTec.model.entity.dao.cliente.Cliente;
 import org.springframework.data.repository.CrudRepository;
 
-public interface ClienteDao extends JpaRepository<cliente, Integer> {
-
-    void deleteById(clienteDto cliente);
+public interface ClienteDao extends CrudRepository<Cliente, Integer> {
 }

@@ -1,35 +1,45 @@
 package com.PruTec.model.entity.dao.cliente;
 
-import com.PruTec.model.entity.dao.Dto.clienteDto;
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.io.Serializable;
 import java.util.Date;
 
-
 @Data
-@Builder(toBuilder = true)
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-@Table(name="clientes")
+@Builder
 @Entity
-public class cliente implements Serializable {
+@Table(name = "cliente")
+public class Cliente implements Serializable {
 
     @Id
-    @Column(name="id_cliente")
+    @Column(name = "id_cliente")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idCliente;
-    @Column(name="nombre")
+    @Column(name = "nombre")
     private String nombre;
-    @Column(name="apellido")
+    @Column(name = "apellido")
     private String apellido;
-    @Column(name="correo")
+    @Column(name = "correo")
     private String correo;
-    @Column(name="fecha_registro")
+    @Column(name = "fecha_registro")
     private Date fechaRegistro;
 
-    @Transient
-    private clienteDto ClienteDto;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
