@@ -1,10 +1,8 @@
 package com.PruTec.model.entity.dao;
 
+import com.PruTec.model.entity.dao.Dto.clienteDto;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -14,9 +12,9 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-@Entity
+@Builder
 @Table(name="clientes")
-public class cliente implements Serializable {
+public class cliente extends clienteDto implements Serializable {
 
     @Id
     @Column(name="id_cliente")

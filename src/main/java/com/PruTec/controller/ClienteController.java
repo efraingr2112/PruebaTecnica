@@ -1,6 +1,7 @@
 package com.PruTec.controller;
 
 
+import com.PruTec.model.entity.dao.Dto.clienteDto;
 import com.PruTec.model.entity.dao.cliente;
 import com.PruTec.servicio.ICliente;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,14 +22,30 @@ public class ClienteController {
 
     @PostMapping("cliente")
     @ResponseStatus(HttpStatus.CREATED)
-    public cliente create(@RequestBody cliente Cliente){
-       return  clienteService.save(Cliente);
+    public cliente create(@RequestBody clienteDto ClienteDto){
+       cliente ClienteSave = (cliente) clienteService.save(ClienteDto);
+       return cliente.builder()
+                .idCliente(ClienteSave.getIdCliente())
+                .nombre(ClienteSave.getNombre())
+                .apellido(ClienteSave.getApellido())
+                .correo(ClienteSave.getCorreo())
+                .fechaRegistro(ClienteSave.getFechaRegistro())
+                .build();
+
+
 
     }
     @PutMapping("cliente")
     @ResponseStatus(HttpStatus.CREATED)
-    public cliente update(@RequestBody cliente Cliente){
-        return  clienteService.save(Cliente);
+    public cliente update(@RequestBody clienteDto ClienteDto){
+        cliente ClienteUpdate = (cliente) clienteService.save(ClienteDto);
+        return cliente.builder()
+                .idCliente(ClienteUpdate.getIdCliente())
+                .nombre(ClienteUpdate.getNombre())
+                .apellido(ClienteUpdate.getApellido())
+                .correo(ClienteUpdate.getCorreo())
+                .fechaRegistro(ClienteUpdate.getFechaRegistro())
+                .build();
 
     }
     @DeleteMapping("cliente/{id}")
@@ -48,7 +65,7 @@ public class ClienteController {
     }
     @GetMapping("cliente/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public cliente showById(@PathVariable Integer id){
+    public clienteDto showById(@PathVariable Integer id){
         return clienteService.findById(id);
     }
 
