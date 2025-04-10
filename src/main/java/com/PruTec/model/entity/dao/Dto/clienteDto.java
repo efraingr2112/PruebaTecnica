@@ -1,17 +1,19 @@
 package com.PruTec.model.entity.dao.Dto;
 
-import jakarta.persistence.*;
+import com.PruTec.model.entity.dao.cliente.cliente;
 import lombok.*;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
 
 import java.io.Serializable;
 import java.util.Date;
 
 
 @Data
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-@Builder
 public class clienteDto implements Serializable {
 
 

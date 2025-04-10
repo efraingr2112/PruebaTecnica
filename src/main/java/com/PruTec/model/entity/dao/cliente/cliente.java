@@ -1,4 +1,4 @@
-package com.PruTec.model.entity.dao;
+package com.PruTec.model.entity.dao.cliente;
 
 import com.PruTec.model.entity.dao.Dto.clienteDto;
 import jakarta.persistence.*;
@@ -9,12 +9,13 @@ import java.util.Date;
 
 
 @Data
+@Builder(toBuilder = true)
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-@Builder
 @Table(name="clientes")
-public class cliente extends clienteDto implements Serializable {
+@Entity
+public class cliente implements Serializable {
 
     @Id
     @Column(name="id_cliente")
@@ -28,4 +29,7 @@ public class cliente extends clienteDto implements Serializable {
     private String correo;
     @Column(name="fecha_registro")
     private Date fechaRegistro;
+
+    @Transient
+    private clienteDto ClienteDto;
 }
